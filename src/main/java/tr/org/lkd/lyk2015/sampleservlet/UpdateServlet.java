@@ -28,19 +28,15 @@ public class UpdateServlet extends HttpServlet {
 			req.setAttribute("idRenDate", "hidden");
 			req.setAttribute("idRenBtn", "none");
 			req.setAttribute("idRenText", "none");
-			// req.setAttribute("renderVal", "true");
 		} else {
 			req.setAttribute("todo", t);
 
 			SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
 			System.out.println(t.getDueDate().getTime());
-			// Ouput "Wed Sep 26 14:23:28 EST 2012"
 
 			String formatted = format1.format(t.getDueDate().getTime());
 			System.out.println(formatted);
-			// Output "2012-09-26"
 
-			// req.setAttribute("renderVal", "false");
 			req.setAttribute("idRen", "text");
 			req.setAttribute("idRenName", "text");
 			req.setAttribute("idRenDate", "date");
@@ -67,7 +63,6 @@ public class UpdateServlet extends HttpServlet {
 			Date date = curFormater.parse(dueDate);
 			cal.setTime(date);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
 		Todo t = Storage.getById(Long.valueOf(id));
